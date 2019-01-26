@@ -34,7 +34,8 @@ export class HomePage {
 
   login() {
     this.auth.authenticate(this.creds).subscribe(response=>{
-      console.log(response.headers.get("Authorization")),
+      //chamando o método login com sucesso caso e armazena token no localstorage
+      this.auth.successfulLogin(response.headers.get("Authorization")),
       this.navCtrl.setRoot("CategoriasPage")
     },
     error => {}); 
